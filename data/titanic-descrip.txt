@@ -1,0 +1,6 @@
+VARIABLE DESCRIPTIONS:
+
+Class (0 = crew, 1 = first, 2 = second, 3 = third)
+Age   (1 = adult, 0 = child)
+Sex   (1 = male, 0 = female)
+Survived (1 = yes, 0 = no)

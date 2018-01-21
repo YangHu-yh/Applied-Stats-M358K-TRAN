@@ -1,0 +1,7 @@
+VARIABLE DESCRIPTIONS:
+This dataset contains the result of a survey on political ideology, and support for the DREAM act. 
+--------
+ideology: political ideology of the respondent
+stance: yes = support the DREAM act, no = no. 
+
+

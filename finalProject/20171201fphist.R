@@ -1,0 +1,240 @@
+getwd()
+setwd("~/")
+setwd("~/Documents/!!!Study/!!!COLLEGE/2017 Fall/M 358K/homework/HW5")
+setwd("~/Documents/!!!Study/!!!COLLEGE/2017 Fall/M 358K/finalProject")
+house <- read.csv("house.csv")
+head(house)
+plot(id~price, data=house)
+cor(house$id, house$price)
+plot(date~price, data=house)
+library(ggplot2)
+library(vcd)
+ggplot(house, aes(x=price)) + geom_histogram(bins = 1000)
+cov(house$price,house$bedrooms)
+cor(house$price,house$bedrooms)
+cor(house$price,house$bathrooms)
+cor(house$price,house$sqft_living)
+cor(house$price,house$sqft_lot)
+cor(house$price,house$floors)
+cor(house$price,house$waterfront)
+cor(house$price,house$view)
+cor(house$price,house$condition)
+cor(house$price,house$grade)
+cor(house$price,house$sqft_basement)
+cor(house$price,house$yr_built)
+cor(house$price,house$yr_renovated)
+cor(house$price,house$zipcode)
+cor(house$price,house$lat)
+cor(house$price,house$long)
+cor(house$price,house$sqft_living15)
+cor(house$price,house$sqft_lot15)
+cor(house$price,house$date)
+sapply(house,class)
+levels(bedrooms)
+levels(house$bedrooms)
+house$bedrooms
+#bedroom should be factor
+house$ bathrooms
+house$sqft_above
+house$sqft_living
+house$sqft_lot
+ggplot(house,aes(x=price))+geom_boxplot()
+ggplot(house,aes(x=price,y=bedrooms))+geom_boxplot()
+ggplot(house,aes(x=bedrooms, y=price))+geom_boxplot()
+ggplot(house,aes(x=bathrooms, y=price)) + geom_boxplot()
+ggplot(house,aes(group=bathrooms, y=price)) + geom_boxplot()
+ggplot(house,aes(x=bathrooms, y=price)) + geom_histogram()
+plot(house$bathrooms,house$price)
+convert <- function(obj,types){
+for (i in 1:length(obj)){
+FUN <- switch(types[i],character = as.character,
+numeric = as.numeric,
+factor = as.factor, date = as.Date, time = time)
+obj[,i] <- FUN(obj[,i])
+}
+obj
+}
+#set the target types of the various columns
+numcol = dim(house)[2]
+type.target = rep("numeric", numcol)
+type.target[c(1:numcol)[names(house) == "bedrooms"]] <- "factor"
+type.target[c(1:numcol)[names(house) == "bathrooms"]] <- "factor"
+type.target[c(1:numcol)[names(house) == "sqft_living"]] <- "integer"
+type.target[c(1:numcol)[names(data) == "grade"]] <- "factor"
+type.target[c(1:numcol)[names(data) == "sqft_living15"]] <- "integer"
+type.target[c(1:numcol)[names(data) == "zipcode"]] <- "integer"
+type.target[c(1:numcol)[names(data) == "bedrooms"]] <- "factor"
+type.target[c(1:numcol)[names(data) == "view"]] <- "factor"
+type.target[c(1:numcol)[names(data) == "sqft_basement"]] <- "integer"
+type.target[c(1:numcol)[names(data) == "yr_renovated"]] <- "factor"
+type.target[c(1:numcol)[names(house) == "time"]] <- "date"
+type.target[c(1:numcol)[names(data) == "yr_built"]] <- "factor"
+house2 <- house
+house2 <- convert(house2, type.target)
+convert <- function(obj,types){
+for (i in 1:length(obj)){
+FUN <- switch(types[i],character = as.character,
+numeric = as.numeric,
+factor = as.factor, date = as.Date, time = time)
+obj[,i] <- FUN(obj[,i])
+}
+obj
+}
+house2 <- convert(house2, type.target)
+library(ggplot2)
+library(vcd)
+convert <- function(obj,types){
+for (i in 1:length(obj)){
+FUN <- switch(types[i],character = as.character,
+numeric = as.numeric,
+factor = as.factor, date = as.Date, time = time)
+obj[,i] <- FUN(obj[,i])
+}
+obj
+}
+house2 <- convert(house2, type.target)
+cbind(names(house2), type.target)
+house2 <- convert(house2, type.target)
+sapply(house2,class)
+convert <- function(obj,types){
+for (i in 1:length(obj)){
+FUN <- switch(types[i],character = as.character,
+numeric = as.numeric,
+factor = as.factor, date = as.Date, time = time)
+obj[,i] <- FUN(obj[,i])
+}
+obj
+}
+#set the target types of the various columns
+numcol = dim(house)[2]
+type.target = rep("numeric", numcol)
+type.target[c(1:numcol)[names(house) == "bedrooms"]] <- "factor"
+type.target[c(1:numcol)[names(house) == "bathrooms"]] <- "factor"
+type.target[c(1:numcol)[names(house) == "sqft_living"]] <- "integer"
+type.target[c(1:numcol)[names(data) == "grade"]] <- "factor"
+type.target[c(1:numcol)[names(data) == "sqft_living15"]] <- "integer"
+type.target[c(1:numcol)[names(data) == "zipcode"]] <- "integer"
+type.target[c(1:numcol)[names(data) == "bedrooms"]] <- "factor"
+type.target[c(1:numcol)[names(data) == "view"]] <- "factor"
+type.target[c(1:numcol)[names(data) == "sqft_basement"]] <- "integer"
+type.target[c(1:numcol)[names(data) == "yr_renovated"]] <- "factor"
+type.target[c(1:numcol)[names(house) == "time"]] <- "date"
+type.target[c(1:numcol)[names(data) == "yr_built"]] <- "factor"
+cbind(names(house2), type.target)
+house2 <- convert(house2, type.target)
+house2 <- convert(house, type.target)
+convert <- function(obj,types){
+for (i in 1:length(obj)){
+FUN <- switch(types[i],character = as.character,
+numeric = as.numeric,
+factor = as.factor, date = as.Date, time = time)
+obj[,i] <- FUN(obj[,i])
+}
+obj
+}
+house2 <- convert(house, type.target)
+View(convert)
+house2 <- convert(house2, type.target)
+library(grid)
+library(ggplot2)
+library(vcd)
+data <- read.csv("email.csv")
+# Use some code learned in class to set types for each column:
+numcol = dim(data)[2]
+type.target = rep("factor", numcol)
+type.target[c(1:numcol)[names(data) == "cc"]] <- "numeric"
+type.target[c(1:numcol)[names(data) == "image"]] <- "numeric"
+type.target[c(1:numcol)[names(data) == "attach"]] <- "numeric"
+type.target[c(1:numcol)[names(data) == "dollar"]] <- "numeric"
+type.target[c(1:numcol)[names(data) == "inherit"]] <- "numeric"
+type.target[c(1:numcol)[names(data) == "viagra"]] <- "numeric"
+type.target[c(1:numcol)[names(data) == "password"]] <- "numeric"
+type.target[c(1:numcol)[names(data) == "num_char"]] <- "numeric"
+type.target[c(1:numcol)[names(data) == "line_breaks"]] <- "numeric"
+type.target[c(1:numcol)[names(data) == "exclaim_mess"]] <- "numeric"
+type.target[c(1:numcol)[names(data) == "time"]] <- "date"
+# set convert function:
+convert <- function(obj,types){
+for (i in 1:length(obj)){
+FUN <- switch(types[i],character = as.character,
+numeric = as.numeric,
+factor = as.factor, date = as.Date, time = time)
+obj[,i] <- FUN(obj[,i])
+}
+obj
+}
+data <- convert(data, type.target)
+# check if the convertion is successful:
+sapply(data, class)
+house2 <- convert(house2, type.target)
+type.target[c(1:numcol)[names(house) == "yr_built"]] <- "factor"
+type.target[c(1:numcol)[names(house) == "data"]] <- "factor"
+house2 <- convert(house2, type.target)
+convert <- function(obj,types){
+for (i in 1:length(obj)){
+FUN <- switch(types[i],character = as.character,
+numeric = as.numeric,
+factor = as.factor, date = as.Date, time = time)
+obj[,i] <- FUN(obj[,i])
+}
+obj
+}
+#set the target types of the various columns
+numcol = dim(house)[2]
+type.target = rep("numeric", numcol)
+type.target[c(1:numcol)[names(house) == "bedrooms"]] <- "factor"
+type.target[c(1:numcol)[names(house) == "bathrooms"]] <- "factor"
+type.target[c(1:numcol)[names(house) == "sqft_living"]] <- "integer"
+type.target[c(1:numcol)[names(house) == "grade"]] <- "factor"
+type.target[c(1:numcol)[names(house) == "sqft_living15"]] <- "integer"
+type.target[c(1:numcol)[names(house) == "zipcode"]] <- "integer"
+type.target[c(1:numcol)[names(house) == "bedrooms"]] <- "factor"
+type.target[c(1:numcol)[names(house) == "view"]] <- "factor"
+type.target[c(1:numcol)[names(house) == "sqft_basement"]] <- "integer"
+type.target[c(1:numcol)[names(house) == "yr_renovated"]] <- "factor"
+type.target[c(1:numcol)[names(house) == "time"]] <- "date"
+type.target[c(1:numcol)[names(house) == "yr_built"]] <- "factor"
+type.target[c(1:numcol)[names(house) == "data"]] <- "factor"
+house2 <- convert(house2, type.target)
+convert <- function(obj,types){
+for (i in 1:length(obj)){
+FUN <- switch(types[i],character = as.character,
+numeric = as.numeric,
+factor = as.factor, date = as.Date, time = time)
+obj[,i] <- FUN(obj[,i])
+}
+obj
+}
+#set the target types of the various columns
+numcol = dim(house2)[2]
+type.target = rep("numeric", numcol)
+type.target[c(1:numcol)[names(house2) == "bedrooms"]] <- "factor"
+type.target[c(1:numcol)[names(house2) == "bathrooms"]] <- "factor"
+type.target[c(1:numcol)[names(house2) == "sqft_living"]] <- "integer"
+type.target[c(1:numcol)[names(house2) == "grade"]] <- "factor"
+type.target[c(1:numcol)[names(house2) == "sqft_living15"]] <- "integer"
+type.target[c(1:numcol)[names(house2) == "zipcode"]] <- "integer"
+type.target[c(1:numcol)[names(house2) == "bedrooms"]] <- "factor"
+type.target[c(1:numcol)[names(house2) == "view"]] <- "factor"
+type.target[c(1:numcol)[names(house2) == "sqft_basement"]] <- "integer"
+type.target[c(1:numcol)[names(house2) == "yr_renovated"]] <- "factor"
+house2 <- convert(house2, type.target)
+View(convert)
+convert <- function(obj,types){
+for (i in 1:length(obj)){
+FUN <- switch(types[i],character = as.character,
+numeric = as.numeric,
+factor = as.factor, date = as.Date, time = time)
+obj[,i] <- FUN(obj[,i])
+}
+obj
+}
+#set the target types of the various columns
+numcol = dim(house2)[2]
+type.target = rep("numeric", numcol)
+type.target[c(1:numcol)[names(house2) == "bathrooms"]] <- "factor"
+house2 <- convert(house2, type.target)
+head(house2)
+levels(house2$bathrooms)
+savehistory('20171201fphist')
+savehistory('20171201fphist.R')

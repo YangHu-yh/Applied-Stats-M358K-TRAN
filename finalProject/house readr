@@ -1,0 +1,78 @@
+library(readr)
+house <- read_csv("house.csv", col_types = cols(bathrooms = col_factor(levels = c("1", 
+    "2", "3", "4", "5", "6+")), bedrooms = col_factor(levels = c("1", 
+    "2", "3", "4", "5", "6", "7", "8", "9", 
+    "10")), date = col_date(format = "%Y-%m-%d "), 
+    view = col_factor(levels = c("1", "2", 
+        "3", "4"))))
+View(house)
+
+
+bedroom: 1-7,8,9,10,11,33
+bathrooms: 0,0.5,0.75....
+floor: 1 - 3.5
+waterfront ： 0,1
+view: 0,1,2,3,4
+condition: 1,2,3,4,5,
+grade: 1,3,4,5,6,7,8,9,10,11,12,13
+yr_built: %Y
+yr_renovated: 0 or %Y
+
+
+library(readr)
+house <- read_csv("house.csv", col_types = cols(bathrooms = col_factor(levels = c("0", 
+    "0.50", "0.75", "1.00", "1.25", "1.50", "1.75", 
+     "2.00", "2.25", "2.50", "2.75", "3.00", "3.25", 
+     "3.50", "3.75", "4.00", "4.25", "4.50", "4.75", 
+     "5.00", "5.25", "5.50", "5.75", "6.00", "6.25", 
+     "6.50", "6.75", "7.50", "7.75", 
+     "8.00")), bedrooms = col_factor(levels = c("1", 
+     "2", "3", "4", "5", "6", "7","8","9","10","11","33")), condition = col_factor(levels = c("1", 
+     "2", "3", "4", "5")), date = col_date(format = "%Y%m%dT000000"), 
+     floors = col_factor(levels = c("1", "1.5", 
+         "2", "2.5", "3", "3.5")), grade = col_factor(levels = c("1", 
+         "3", "4", "5", "6", "7", "8", "9", 
+         "10", "11", "12", "13")), price = col_number(), 
+     view = col_factor(levels = c("0", "1", 
+         "2", "3", "4")), waterfront = col_factor(levels = c("0", 
+         "1"))))
+
+
+
+library(readr)
+house <- read_csv("house.csv", col_types = cols(bathrooms = col_factor(levels = c("0", 
+    "0.5", "0.75", "1", "1.25", "1.5", "1.75", 
+     "2", "2.25", "2.5", "2.75", "3", "3.25", 
+     "3.5", "3.75", "4", "4.25", "4.5", "4.75", 
+     "5", "5.25", "5.5", "5.75", "6", "6.25", 
+     "6.5", "6.75", "7.5", "7.75", 
+     "8")), bedrooms = col_factor(levels = c("0","1", 
+     "2", "3", "4", "5", "6", "7","8","9","10","11","33")), condition = col_factor(levels = c("1", 
+     "2", "3", "4", "5")), date = col_date(format = "%Y%m%dT000000"), 
+     floors = col_factor(levels = c("1", "1.5", 
+         "2", "2.5", "3", "3.5")), grade = col_factor(levels = c("1", 
+         "3", "4", "5", "6", "7", "8", "9", 
+         "10", "11", "12", "13")), price = col_number(), 
+     view = col_factor(levels = c("0", "1", 
+         "2", "3", "4")), waterfront = col_factor(levels = c("0", 
+         "1"))))
+
+
+library(readr)
+house2 <- read_csv("house.csv", col_types = cols(bathrooms = col_factor(levels = c("0", 
+    "0.5", "0.75", "1", "1.25", "1.5", "1.75", 
+     "2", "2.25", "2.5", "2.75", "3", "3.25", 
+     "3.5", "3.75", "4", "4.25", "4.5", "4.75", 
+     "5", "5.25", "5.5", "5.75", "6", "6.25", 
+     "6.5", "6.75", "7.5", "7.75", 
+     "8")), bedrooms = col_factor(levels = c("0","1", 
+     "2", "3", "4", "5", "6", "7","8","9","10","11","33")), condition = col_factor(levels = c("1", 
+     "2", "3", "4", "5")), date = col_date(format = "%Y%m%dT000000"), 
+     floors = col_factor(levels = c("1", "1.5", 
+         "2", "2.5", "3", "3.5")), grade = col_factor(levels = c("1", 
+         "3", "4", "5", "6", "7", "8", "9", 
+         "10", "11", "12", "13")), price = col_integer(), 
+     view = col_factor(levels = c("0", "1", 
+         "2", "3", "4")), waterfront = col_factor(levels = c("0", 
+         "1"))))
+

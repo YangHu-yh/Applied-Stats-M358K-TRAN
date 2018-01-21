@@ -1,0 +1,141 @@
+#--- research problem:
+do garden programs increase veg. consumption in children?
+
+#---- not well-defined yet: the population is not well-defined. 
+
+Population:
+children in school?
+* which grade level? (high school? primary school?)
+* where? (US? world wide?)
+
+Narrow down:
+Population:
+* all primary school children in Texas (good. feasible.)
+NOTE: this means all statements from our study will only apply to this population. 
+#----------
+
+#-----------NOW: sample or experiment?
+An experiment means: two groups. In one group, you INTRODUCE a gardening program. Observe veg consumption over time. 
+
+Sample means: find one (or a few) schools WITH a gardening program, one (or a few) schools WITHOUT a gardening program, and then compare veg. consumption. 
+
+With experiment, because you have full control over the input variable of interest, you CAN make causality statements. 
+(ie: BECAUSE of the school garden program, the veg. consumption change by XXX)
+
+With sampling: it is an observational study. (ie: you cannot prove that difference in veg. consumption between two groups is due to the school garden program alone). Can only shows CORRELATION. 
+
+ie: conclusion could be something like:
+"schools with veg. program are observed to have higher veg. consumption rate by X amount".
+(can still quantify the difference, but you canNOT attribute the difference to the veg. program alone). 
+
+#------------
+Let's do an experiment. 
+High level idea:
+* take a "typical school"
+* record veg. consumption ***NON-TRIVIAL*** 
+====
+* implement a veg program. Wait for X months. 
+* record veg. consumption again. 
+
+Possible issues:
+1/ HOW reliably record veg consumption?
+* duration: need to average over a long term (eg: a month) to avoid daily flunctuations. 
+ (idea: we expect if there were a diff. due to the school veg. program, this diff. could be smaller than daily flunctuations). ie: should record over a long period of time. 
+* eg: a month. 
+* parents + school cafeteria: record veg. bought, estimate veg. consumption. 
+* some issues with this: 
++ this is just an estimation of veg. consumption. 
++ biases: veg goes in trash, eat out elsewhere, parents forgot to record, etc etc
+(can discuss this for long time). 
+
+
+
+
+
+2/ seasonal effects (veg consumption can differ between summer vs winter).
+Suggestions: 
++ implement the program in spring (install in January, end in May). Ok but this does not eliminate the seasonal effects
++ record annual consumption?
+
+3/ how to choose a "typical" primary school in Texas?
+* take a directory of public + private schools
+* use random number generator to pick one uniformly at random. 
+* GOOD. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+
+
+#-- for most likely impact: should look for a favorable population. 
+#NOT the same as actively choosing a sample. 
+#sample should always be a representative sample of your population
+#the population is what your research will be about. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#--- on homework 4: on the interaction term. 
+#--- two categorical variables: relation (girlfriend or acquaintance), weight (obese or not)
+#--- the interaction term between these two variables is 
+relation:weight 
+relation.weight (read: "relation times weight")
+consists of 4 categories (all possible combinations between relation and weight):
+0,1,2,3. 
+0 = girlfriend, obese
+1 = girlfriend, normal
+2 = acq., obese
+3 = acq. normal. 
+#--- run lm with interaction term in R:
+model <- lm(qualified ~ relation+weight+relation:weight, data = data). 
+#---- (MORE DISCUSSIONS: on Thursday. (Will do an explicit example in class)). 
+
+#---------------------
+

@@ -1,0 +1,92 @@
+library(R.utils)
+library(rstan)
+install.packages("rstan")
+library(manipulate)
+install.packages("manipulate")
+p <- seq(from=0.005, to=0.995, by=0.005)
+library(manipulate)
+manipulate( # requires RStudio
+{plot(p, dbeta(p, alpha.hyper, beta.hyper),
+col="blue", lwd=2, type="l", las=1, bty="n",
+ylim=c(0, 8), ylab="density",
+main="Beta prior distribution")
+polygon(c(p, rev(p)), c(dbeta(p, alpha.hyper, beta.hyper),
+rep(0, length(p))), col=rgb(0, 0, 1, 0.2), border=NA)},
+alpha.hyper=slider(0.1, 10, step=0.1, initial=1),
+beta.hyper=slider(0.1, 10, step=0.1, initial=1))
+p.true <- 0.7
+N <- 30
+y <- rbinom(N, size=1, prob=p.true)
+table(y)/N
+likelihood <- sapply(p, function(p) { prod(p^y * (1-p)^(1-y)) } )
+plot(p, likelihood, lwd=2, las=1, bty="n", type="l")
+like.rescale <- 4 * likelihood/max(likelihood)
+manipulate(
+{plot(p, like.rescale, lwd=2, las=1, bty="n",
+ylim=c(0,8), type="l", ylab="density",
+main="Beta prior (blue) x Likelihood (black) = Beta posterior (red)")
+alpha.hyper.post <- alpha.hyper + sum(y)
+beta.hyper.post <- beta.hyper + N - sum(y)
+lines(p, dbeta(p, alpha.hyper, beta.hyper), col="blue", lwd=2)
+polygon(c(p, rev(p)), c(dbeta(p, alpha.hyper, beta.hyper),
+rep(0, length(p))), col=rgb(0, 0, 1, 0.2), border=NA)
+lines(p, dbeta(p, alpha.hyper.post, beta.hyper.post), col="red", lwd=2)
+polygon(c(p, rev(p)), c(dbeta(p, alpha.hyper.post, beta.hyper.post),
+rep(0, length(p))), col=rgb(1, 0, 0, 0.2), border=NA)
+lines(p, like.rescale, lwd=2)},
+alpha.hyper=slider(0.1, 10, step=0.1, initial=1),
+beta.hyper=slider(0.1, 10, step=0.1, initial=1))
+rm(list = ls()
+)
+rm(list = ls())
+library(manipulate)
+p <- seq(from=0.005, to=0.995, by=0.005)
+manipulate( # requires RStudio
+{plot(p, dbeta(p, alpha.hyper, beta.hyper),
+col="blue", lwd=2, type="l", las=1, bty="n",
+ylim=c(0, 8), ylab="density",
+main="Beta prior distribution")
+polygon(c(p, rev(p)), c(dbeta(p, alpha.hyper, beta.hyper),
+rep(0, length(p))), col=rgb(0, 0, 1, 0.2), border=NA)},
+alpha.hyper=slider(0.1, 10, step=0.1, initial=1),
+beta.hyper=slider(0.1, 10, step=0.1, initial=1))
+p.true <- 0.7
+N <- 30
+y <- rbinom(N, size=1, prob=p.true)
+table(y)/N
+likelihood <- sapply(p, function(p) { prod(p^y * (1-p)^(1-y)) } )
+plot(p, likelihood, lwd=2, las=1, bty="n", type="l")
+## (To help with visibility)
+like.rescale <- 4 * likelihood/max(likelihood)
+manipulate(
+{plot(p, like.rescale, lwd=2, las=1, bty="n",
+ylim=c(0,8), type="l", ylab="density",
+main="Beta prior (blue) x Likelihood (black) = Beta posterior (red)")
+alpha.hyper.post <- alpha.hyper + sum(y)
+beta.hyper.post <- beta.hyper + N - sum(y)
+lines(p, dbeta(p, alpha.hyper, beta.hyper), col="blue", lwd=2)
+polygon(c(p, rev(p)), c(dbeta(p, alpha.hyper, beta.hyper),
+rep(0, length(p))), col=rgb(0, 0, 1, 0.2), border=NA)
+lines(p, dbeta(p, alpha.hyper.post, beta.hyper.post), col="red", lwd=2)
+polygon(c(p, rev(p)), c(dbeta(p, alpha.hyper.post, beta.hyper.post),
+rep(0, length(p))), col=rgb(1, 0, 0, 0.2), border=NA)
+lines(p, like.rescale, lwd=2)},
+alpha.hyper=slider(0.1, 10, step=0.1, initial=1),
+beta.hyper=slider(0.1, 10, step=0.1, initial=1))
+manipulate(
+{plot(p, like.rescale, lwd=2, las=1, bty="n",
+ylim=c(0,8), type="l", ylab="density",
+main="Beta prior (blue) x Likelihood (black) = Beta posterior (red)")
+alpha.hyper.post <- alpha.hyper + sum(y)
+beta.hyper.post <- beta.hyper + N - sum(y)
+lines(p, dbeta(p, alpha.hyper, beta.hyper), col="blue", lwd=2)
+polygon(c(p, rev(p)), c(dbeta(p, alpha.hyper, beta.hyper),
+rep(0, length(p))), col=rgb(0, 0, 1, 0.2), border=NA)
+lines(p, dbeta(p, alpha.hyper.post, beta.hyper.post), col="red", lwd=2)
+polygon(c(p, rev(p)), c(dbeta(p, alpha.hyper.post, beta.hyper.post),
+rep(0, length(p))), col=rgb(1, 0, 0, 0.2), border=NA)
+lines(p, like.rescale, lwd=2)},
+alpha.hyper=slider(0.1, 10, step=0.1, initial=1),
+beta.hyper=slider(0.1, 10, step=0.1, initial=1))
+getwd()
+savehistory("Tuesday-Bayesian.R")

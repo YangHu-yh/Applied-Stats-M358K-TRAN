@@ -1,0 +1,66 @@
+id: house id (unique for each)
+date: date sold (year/month/day/time)
+price: price in USD
+bedrooms: number of bedrooms
+bathrooms: number of bathrooms (can be a fraction, eg: half bath, or sink only etc)
+sqft_living: living area in square feet
+sqft_lot: lot area in square feet
+floors: number of floors
+waterfront: 1 if house has waterfront, 0 else
+view: number of views the house has (0 = no view, 1 = one side has nice view, 4 = all 4 sides have nice view)
+condition: house condition. 1 = Poor-Worn out, 2 = fair-badly worn, 3 = average, 4 = good, 5 = very good
+grade: building grade (quality of construction). 1-3 = falls short of building standards, 4 = older, low quality, 5 = low construction costs, simple design, 6 = lowest grade currently meeting building code, 7 = average grade of construction and design, 8 = above average, 9 = better, 10 = high quality features, 11 = custom design, higher quality, 12 = custom designer, excellent builders, 13 = mansion level, large amount of highest quality construction and design
+sqft_above: The square footage of the interior housing space that is above ground level 
+sqft_basement: square feet of basement
+yr_built: year built 
+yr_renovated: year last renovated 
+zipcode: zip code
+lat: latitude
+long: longitude 
+sqft_living15: The square footage of interior housing living space for the nearest 15 neighbors 
+sqft_lot15: The square footage of the land lots of the nearest 15 neighbors 
+
+
+
+> cor(house$id, house$price)
+[1] -0.0167622
+> s
+[1] 0.3083496
+> cor(house$price,house$bedrooms)
+[1] 0.3083496
+> cor(house2$sqft_above, house2$price)
+[1] 0.6055673
+> cor(house$price,house$bathrooms)
+[1] 0.5251375
+> cor(house$price,house$sqft_living)
+[1] 0.7020351
+> cor(house$price,house$sqft_lot)
+[1] 0.08966086
+> cor(house$price,house$floors)
+[1] 0.2567939
+> cor(house$price,house$waterfront)
+[1] 0.2663694
+> cor(house$price,house$view)
+[1] 0.3972935
+> cor(house$price,house$condition)
+[1] 0.03636179
+> cor(house$price,house$grade)
+[1] 0.6674343
+> cor(house$price,house$sqft_basement)
+[1] 0.323816
+> cor(house$price,house$yr_built)
+[1] 0.05401153
+> cor(house$price,house$yr_renovated)
+[1] 0.1264338
+> cor(house$price,house$zipcode)
+[1] -0.05320285
+> cor(house$price,house$lat)
+[1] 0.3070035
+> cor(house$price,house$long)
+[1] 0.02162624
+> cor(house$price,house$sqft_living15)
+[1] 0.5853789
+> cor(house$price,house$sqft_lot15)
+[1] 0.08244715
+> cor(house.withbasement$price, house.withbasement$sqft_basement)
+[1] 0.4073082
