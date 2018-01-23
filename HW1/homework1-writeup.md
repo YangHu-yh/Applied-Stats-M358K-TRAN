@@ -3,11 +3,13 @@ posted on: September 12th, 2017
 due: September 26th, 2017
 
 # Questions
+
     Emails: which variables are useful to distinguish spam?
     In this homework, you will explore the dataset emails to help answering the question: which variables are useful to distinguish spam vs regular emails? The Emails dataset. data/emails.csv on Canvas. Variable description. data/emails-descrip.txt on Canvas.
 
 
 ## Spam vs Format: descriptive analysis with categorical variables
+
     *NOTES: To make it more clear, I rename the level in spam and format, where 0 and 1 become not_spam/plain_text and spam/formatted, the variables are also renamed.
 
 ### Produce a mosaic plot of spam vs format. What does this mosaic plot reveal?
@@ -27,11 +29,22 @@ Table1|plain_text|formatted
 not_spam | 986 | 2568
 spam|209|158
 
-By calculation, the fraction of spam that are formatted is 0.05796038, which could be written and rounded as 5.80%. Then the fraction of non-spam that are formatted is 0.9420396, which could be written and rounded as 94.20%. The fraction of formatted emails that are spam is 0.4305177, which could be written and rounded as 43.05%. The fraction of plain text emails that are spam is 0.5694823, which could be written and rounded as 56.95%. From calculation, we can know the percentage shown on the mosaic graph. The bottom black spam part in formatted text would be 5.80% (therefore, 94.20% of formatted text are non-spam), and 56.95% of plain text are in spam emails.
+By calculation:
+- the percent of spam that are formatted is 57%. 
+- The percent of non-spam that are formatted is 94.20%. 
+- The percent of formatted emails that are spam is 5.8%. 
+- The percent of plain text emails that are spam is 17.5%. 
+- From calculation, we can know the exact percentage shown on the mosaic graph. 
+
+
+```....```
 
 
 ### Summarize the relationship between spam and format in a couple of sentences.
+
 	For emails have format, less chance for it to be a spam email, which is only 5.80% of spam emails. Then within the spam emails, there is more chance for a selected email to be in plain text. Therefore, if you know a email that is plain text form, then it is more possible for a selected email to be spam. If you know a email that is spam, there is more probability that a selected email would be plain text. Therefore, in general, plain text format would be related to spam more than related to non-spam.
+	
+```...```
 
 ## Sometimes it is useful to recode variables. spam vs exclaim mess is an example.
 
@@ -77,7 +90,8 @@ Table2|	[0,1) |	[1,2) |	[2,3) |	[3,Inf)
 not_spam |	1219 |	650 |	482 |	1203
 spam |	216 |	83	| 25 |	43
 
-Mosaic Spam vs Exclaim mess.recode
+**Mosaic Spam vs Exclaim mess.recode**
+
 ![image](hw1fig7.png)
 
 From above table, I can see the number of non-spam emails in [0,1] and [3, inf] level of exclaim mess for spam are close both a little bit more than 1200 but the number of spam emails in such two categories have large difference that [3, Inf ) that [3, Inf ) have much less spam emails. The number also decrease a lot for [1,2] and [2, 3] in terms of both spam and non-spam emails, but not as much as spam in [3, Inf ). 
@@ -85,22 +99,31 @@ From the mosaic graph, we can see same trend in terms of proportion for each cat
 
 
 ### Summarize the relationship between spam and exclaim mess.recode in a couple of sentences. 
+
 Therefore, in this sample, we know zero exclaim mess have a highest probability to have a selected email to be spam, and the probability that a selected email to be spam in the shown range of exclaim mess decrease as the number of exclaim mess increase.
 
 
 ### Why is it reasonable to recode exclaim mess? 
+
 Because there are not much larger exclaim mess, accumulate the large exclaim mess together in one category will make every feature more clear. Otherwise we can only see a spike around zero and flat elsewhere but having no idea how it actually perform.
 
  
 ### Bonus question | How would your summary on the relation between spam and exclaim mess change if you had recoded it into x values?
+
     5 values? 10 values? 3 values? Which regroup is most reasonable, and why?
 	
 For 5 values, a mosaic graph will looks like:
+
 ![image](hw1fig8.png)
+
 For 10 values, a mosaic graph will looks like:
+
 ![image](hw1fig9.png)
+
 For 3 values, a mosaic graph will looks like:
+
 ![image](hw1fig10.png)
+
 By regroup the exclaim_mess, I found the probability of a select email from certain range does not simply decrease as the range increase along the ordered category. The probability for ranges start with larger exclaim mess will certainly have smaller probability than zero or one exclaim mess, but not totally stable after two or three, which can be proved easily by mosaic graph when dviding exclaim_mess into ten groups.
 
 I prefer five groups because it have a little more details than three groups and four groups, but each categories will not be too thin that even the name of a category can not suit it it like the ten group exclaim_mess graph. More details are important because if there is only three groups, you loss too much information while transferring a numerical type of data to factor. Therefore, it is easier to manipulate the data and group them into the way that probably will support your answer. Our aim of group is to accumulate the extra outliers to on big group with representative of the character of large exclaim mess – less probability of selecting a email to be spam. Thus, I prefer to group into 5 values.
@@ -133,6 +156,7 @@ I prefer five groups because it have a little more details than three groups and
 
 
 What do those plots convey? Summarize the distribution of num char in a couple of sentences.
+
 Violin plot is useful for describing the distribution of num_char while comparing spam and non-spam emails. Since Box plot only tell minimum, first quartile, median, third quartile, and maximum, we cannot gain an overview of the distribution. And dot plot can show that there is a lot of data points but not clear on how much more around zero than elsewhere. 
 
 As for violin plot in this case, the position on non-spam is larger and includes a larger range between zero and fifty with a strike around 25, whereas the spam distribution of num_char focus on zero with a small strike at around 10 to 15. 
